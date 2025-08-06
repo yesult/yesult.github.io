@@ -1,12 +1,329 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Portfolio</title>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>빛과 밤의 사랑 트친소 시트</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./imgs/logo/dancing_mile.png">
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/font.css" rel="stylesheet" type="text/css">
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script src="js/edin_main.js"></script>
+    <script src="js/element_join.js"></script>
 </head>
 <body>
-  <p>Hello, World!</p>
-</body>
-</html>
+<div id="menu"><nav class="menu">
+    <ul>
+        <li><a href="index.html">홈</a></li>
+    </ul>
+</nav></div>
+<section class="input_sheet">
+    <img src="imgs/edin_profile/background.png" id="background" class="hidden">
+    <img src="imgs/edin_profile/backplate.png" id="backplate" class="hidden">
+    <h1>빛과 밤의 사랑 트친소 시트</h1>
+    <p class="explain">빛과 밤의 사랑 트친소 시트 이미지를 자동 생성합니다.</p>
+    <p class="explain">아래 칸에 필요한 정보를 입력해주세요.</p>
+    <h3>시트 설정</h3>
+    <p>
+        <strong>팝업창 위치</strong>
+        <label>가로</label>
+        <input type="range" id="popup_x" min="0" max="1350" value="35" oninput="document.getElementById('popup_x').innerHTML=this.value;">
+        <label>세로</label>
+        <input type="range" id="popup_y" min="0" max="1080" value="35" oninput="document.getElementById('popup_y').innerHTML=this.value;">
+    </p>
+    <p>
+        <label>하이라이트색</label>
+        <input type="color" id="highlight" value="#56bbc3">
+    </p>
+    <h3>이미지 정보</h3>
+    <p>
+        <label>
+            배경 이미지 :
+        </label>
+        <input type="file" id="background_img" accept="image/*">
+    </p>
+    <p class="explain">이미지를 삽입하실 경우, 1350 * 1080 규격에 맞추어 배경이 생성됩니다.</p>
+    <h3>텍스트 정보</h3>
+    <p>
+        <strong>팔로우</strong>
+        <label>
+            멘션
+        </label>
+        <input type="checkbox" id="follow_0">
+        <label>
+            RT
+        </label>
+        <input type="checkbox" id="follow_1">
+        <label>
+            마음
+        </label>
+        <input type="checkbox" id="follow_2">
+        <label>
+            선팔로우
+        </label>
+        <input type="checkbox" id="follow_3">
+    </p>
+    <p>
+        <label>
+            플레이어 ID :
+        </label>
+        <input type="text" id="playercode">
+    </p>
+    <p>
+        <label>
+            이름 :
+        </label>
+        <input type="text" id="name">
+    </p>
+    <p>
+        <label>
+            직함 :
+        </label>
+        <input type="text" id="position">
+    </p>
+    <p>
+        <label>
+            메인 진도 :
+        </label>
+        <input type="text" id="progress">
+    </p>
+    <p>
+        <label>
+            입사 일자 :
+        </label>
+        <input type="text" id="startwork">
+    </p>
+    <p>
+        <label>
+            커넥트 수 :
+        </label>
+        <input type="text" id="collections">
+    </p>
+    <hr>
+    <p>
+        <label>
+            연령 :
+        </label>
+        <select name="age" id="age">
+            <option value="" selected="">연령대를 선택해 주세요.</option>
+            <option value="미성년자">미성년자</option>
+            <option value="성인">성인</option>
+            <option value="비공개">비공개</option>
+        </select>
+    </p>
+    <p>
+        <strong>접속 시간대</strong>
+        <label>규칙적</label>
+        <input type="radio" name="playtime_regular" value="규칙적">
+        <label>불규칙적</label>
+        <input type="radio" name="playtime_regular" value="불규칙적">
+    </p>
+    <p>
+        <strong>평일</strong>
+        <label>
+            새벽
+        </label>
+        <input type="checkbox" id="weekday_0">
+        <label>
+            오전
+        </label>
+        <input type="checkbox" id="weekday_1">
+        <label>
+            오후
+        </label>
+        <input type="checkbox" id="weekday_2">
+        <label>
+            저녁
+        </label>
+        <input type="checkbox" id="weekday_3">
+        <label>
+            심야
+        </label>
+        <input type="checkbox" id="weekday_4">
+    </p>
+    <p>
+        <strong>주말</strong>
+        <label>
+            새벽
+        </label>
+        <input type="checkbox" id="weekend_0">
+        <label>
+            오전
+        </label>
+        <input type="checkbox" id="weekend_1">
+        <label>
+            오후
+        </label>
+        <input type="checkbox" id="weekend_2">
+        <label>
+            저녁
+        </label>
+        <input type="checkbox" id="weekend_3">
+        <label>
+            심야
+        </label>
+        <input type="checkbox" id="weekend_4">
+    </p>
+    <p>
+        <strong>휴일</strong>
+        <label>
+            새벽
+        </label>
+        <input type="checkbox" id="holiday_0">
+        <label>
+            오전
+        </label>
+        <input type="checkbox" id="holiday_1">
+        <label>
+            오후
+        </label>
+        <input type="checkbox" id="holiday_2">
+        <label>
+            저녁
+        </label>
+        <input type="checkbox" id="holiday_3">
+        <label>
+            심야
+        </label>
+        <input type="checkbox" id="holiday_4">
+    </p>
+    <h4>플레이 타입</h4>
+    <p>
+        <label>메인 스토리</label>
+        <input type="checkbox" id="playType1_0">
+        <label>데이트 스토리</label>
+        <input type="checkbox" id="playType1_1">
+        <label>진실게임</label>
+        <input type="checkbox" id="playType1_2">
+        <label>드림위버</label>
+        <input type="checkbox" id="playType1_3">
+        <label>연수의 길</label>
+        <input type="checkbox" id="playType1_4">
+    </p>
+    <p>
+        <label>별빛 전시</label>
+        <input type="checkbox" id="playType1_5">
+        <label>별자리 연구</label>
+        <input type="checkbox" id="playType1_6">
+        <label>소원 투어</label>
+        <input type="checkbox" id="playType1_7">
+        <label>스튜디오</label>
+        <input type="checkbox" id="playType1_8">
+    </p>
+    <p>
+        <strong>주 채널</strong>
+        <label>고정</label>
+        <input type="radio" name="channel_fix" value="고정">
+        <label>랜덤</label>
+        <input type="radio" name="channel_fix" value="랜덤">
+        <label>주로 접속하는 채널</label>
+        <input type="number" id="channel_num" min="1" max="99">
+    </p>
+    <p class="explain">랜덤으로 설정할 시 주로 접속하는 채널이 병기되지 않습니다.</p>
+    </p>
+    <hr>
+    <p>
+        <label>
+            최애캐 :
+        </label>
+        <input type="text" id="lover">
+    </p>
+    <h4>성향</h4>
+    <p>
+        <label>HL</label>
+        <input type="checkbox" id="personality1_0">
+        <label>BL</label>
+        <input type="checkbox" id="personality1_1">
+        <label>GL</label>
+        <input type="checkbox" id="personality1_2">
+        <label>드림</label>
+        <input type="checkbox" id="personality1_3">
+        <label>리버시블</label>
+        <input type="checkbox" id="personality1_4">
+        <label>논리버시블</label>
+        <input type="checkbox" id="personality1_5">
+        <label>논커플링</label>
+        <input type="checkbox" id="personality1_6">
+    </p>
+    <p>
+        <label>올라운더</label>
+        <input type="checkbox" id="personality2_0">
+        <label>기타</label>
+        <input type="checkbox" id="personality2_1">
+    </p>
+    <h4>트윗 성향</h4>
+    <p>
+        <label>RT</label>
+        <input type="checkbox" id="tw_personality1_0">
+        <label>마음요정</label>
+        <input type="checkbox" id="tw_personality1_1">
+        <label>타장르언급</label>
+        <input type="checkbox" id="tw_personality1_2">
+        <label>탐라대화</label>
+        <input type="checkbox" id="tw_personality1_3">
+        <label>자캐덕질</label>
+        <input type="checkbox" id="tw_personality1_4">
+        <label>앤캐앓이</label>
+        <input type="checkbox" id="tw_personality1_5">
+    </p>
+    <p>
+        <label>일상트</label>
+        <input type="checkbox" id="tw_personality2_0">
+        <label>욕트</label>
+        <input type="checkbox" id="tw_personality2_1">
+        <label>폭트</label>
+        <input type="checkbox" id="tw_personality2_2">
+        <label>섹트</label>
+        <input type="checkbox" id="tw_personality2_3">
+        <label>우울트</label>
+        <input type="checkbox" id="tw_personality2_4">
+    </p>
+    <p>
+        <label>글</label>
+        <input type="checkbox" id="tw_personality3_0">
+        <label>그림</label>
+        <input type="checkbox" id="tw_personality3_1">
+        <label>썰</label>
+        <input type="checkbox" id="tw_personality3_2">
+        <label>코스프레</label>
+        <input type="checkbox" id="tw_personality3_3">
+        <label>녹음</label>
+        <input type="checkbox" id="tw_personality3_4">
+        <label>제작</label>
+        <input type="checkbox" id="tw_personality3_5">
+        <label>소비</label>
+        <input type="checkbox" id="tw_personality3_6">
+        <label>기타</label>
+        <input type="checkbox" id="tw_personality3_7">
+    </p>
+    <p>
+        <strong>지뢰</strong>
+        <label>무시가능</label>
+        <input type="radio" name="bomb" value="무시가능">
+        <label>무시불가능</label>
+        <input type="radio" name="bomb" value="무시불가능">
+        <label>직접 멘션이 아니라면 무시 가능</label>
+        <input type="radio" name="bomb" value="직멘제외무시가능">
+    </p>
+    <p><label>한마디</label></p>
+    <p class="explain">최대 5줄까지 출력됩니다.</p>
+    <p><textarea id="etc_talk" style="width:100%; height:150px; word-wrap:break-all;"></textarea></p>
+    <h2>이미지 결과물</h2>
+    <p>
+        <button id="apply">이미지 적용</button>
+        <button id="download">다운로드</button>
+    </p>
+    <div id="canvas_frame">
+        <canvas id="canvas" width="1350" height="1080" style="position: relative;"></canvas>
+    </div>
+    <br>
+    <div class="use_info">
+        <p>이 페이지는 에딘님(https://edin-c.postype.com/post/1912056)께서 배포해주신 틀을 사용하였습니다.</p>
+        <p>이 페이지에서 생성한 이미지는 비영리적인 선에서 자유롭게 사용하실 수 있습니다.</p>
+        <p>이미지에 사용된 게임 로고 이미지의 저작권은 (주)넥슨코리아에 있습니다.</p>
+    </div>
+</section>
+<div id="footer"><div class="footer">
+    <p><span>해당 사이트에서 제작하는 이미지는 게임 마비노기와 관련된 이미지들이고, 게임 《마비노기》의 저작권은 아래 회사에 귀속되어 있습니다.</span></p>
+    <p><span>© NEXON Korea Corporation All Rights Reserved.</span></p>
+    <br>
+    <p><span><a href="./include/font_license.html" target="_blank">폰트 라이센스</a></span></p>
+</div></div>
+</body><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><widget-window style="opacity: 1; background-color: rgb(255, 255, 255); border: 1px solid rgb(135, 132, 129); left: calc(50% - 195px); top: calc(50% - 250px); width: auto; height: auto; display: none;"></widget-window></html>
